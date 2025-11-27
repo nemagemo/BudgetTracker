@@ -1,73 +1,123 @@
-# React + TypeScript + Vite
+# 💰 Budget Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Desktop application for tracking household budget built with Electron, React, TypeScript, and SQLite.
 
-Currently, two official plugins are available:
+![Budget Tracker](https://img.shields.io/badge/version-1.0.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- 📊 **Dashboard** - Overview of your finances with summary cards
+- 📝 **Transaction Management** - Add, view, and delete income/expense transactions
+- 📅 **Transaction History** - Complete list of all your transactions
+- 📈 **Analysis View** - Placeholder for future data visualizations
+- 💾 **Local Database** - All data stored locally using SQLite
+- 🎨 **Modern UI** - Clean, dark-themed interface with Tailwind CSS
+- 🔒 **Privacy First** - All data stays on your computer
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Getting Started
 
-## Expanding the ESLint configuration
+### Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js (v18 or higher)
+- npm or yarn
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Installation
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone the repository:
+```bash
+git clone https://github.com/nemagemo/BudgetTracker.git
+cd BudgetTracker
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Run in development mode:
+```bash
+npm run dev
+```
+
+4. Build for production:
+```bash
+npm run build:electron
+```
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React 19, TypeScript
+- **Desktop**: Electron
+- **Database**: better-sqlite3
+- **Styling**: Tailwind CSS
+- **Build Tool**: Vite
+- **Bundler**: electron-builder
+
+## 📁 Project Structure
+
+```
+BudgetTracker/
+├── electron/           # Electron main process files
+│   ├── main.ts        # Main process entry point
+│   ├── preload.cts    # Preload script
+│   └── db.ts          # SQLite database logic
+├── src/               # React application
+│   ├── components/    # React components
+│   ├── types/         # TypeScript type definitions
+│   └── App.tsx        # Main application component
+├── dist/              # Vite build output
+└── dist-electron/     # Electron build output
+```
+
+## 💡 Usage
+
+### Adding Transactions
+
+1. Click the "+ Dodaj transakcję" button
+2. Select transaction type (Income/Expense)
+3. Enter amount, category, date, and optional description
+4. Click "Dodaj" to save
+
+### Viewing History
+
+Click "Historia" in the sidebar to see all your transactions.
+
+### Navigation
+
+- **Dashboard** - Summary and recent transactions
+- **Historia** - Complete transaction history
+- **Analiza** - Future analytics and visualizations
+
+## 🗄️ Database
+
+The application uses SQLite for local data storage. The database file is located at:
+```
+~/Library/Application Support/budgettracker/budget.db
+```
+
+## 🔮 Future Features
+
+- 📊 Charts and visualizations
+- 💰 Budget limits and alerts
+- 🎯 Savings goals
+- 📤 Export to CSV/PDF
+- 🔄 Recurring transactions
+- 🏷️ Custom categories
+- 🔐 Password protection
+
+## 📝 License
+
+This project is licensed under the MIT License.
+
+## 👤 Author
+
+**nemagemo**
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+---
+
+Made with ❤️ using Electron + React + TypeScript
